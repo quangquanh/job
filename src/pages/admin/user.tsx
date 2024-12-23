@@ -35,7 +35,7 @@ const UserPage = () => {
     if (_id) {
       const res = await callDeleteUser(_id);
       if (res && res.data) {
-        message.success("Xóa User thành công");
+        message.success("Xóa người dùng thành công");
         reloadTable();
       } else {
         notification.error({
@@ -71,7 +71,7 @@ const UserPage = () => {
       hideInSearch: true,
     },
     {
-      title: "Name",
+      title: "Tên",
       dataIndex: "name",
       sorter: true,
     },
@@ -82,7 +82,7 @@ const UserPage = () => {
     },
 
     {
-      title: "CreatedAt",
+      title: "Ngày tạo",
       dataIndex: "createdAt",
       width: 200,
       sorter: true,
@@ -92,7 +92,7 @@ const UserPage = () => {
       hideInSearch: true,
     },
     {
-      title: "UpdatedAt",
+      title: "Ngày cập nhật",
       dataIndex: "updatedAt",
       width: 200,
       sorter: true,
@@ -102,7 +102,7 @@ const UserPage = () => {
       hideInSearch: true,
     },
     {
-      title: "Actions",
+      title: "Chỉnh sửa",
       hideInSearch: true,
       width: 50,
       render: (_value, entity, _index, _action) => (
@@ -124,8 +124,8 @@ const UserPage = () => {
           <Access permission={ALL_PERMISSIONS.USERS.DELETE} hideChildren>
             <Popconfirm
               placement="leftTop"
-              title={"Xác nhận xóa user"}
-              description={"Bạn có chắc chắn muốn xóa user này ?"}
+              title={"Xác nhận xóa người dùng"}
+              description={"Bạn có chắc chắn muốn xóa người dùng này ?"}
               onConfirm={() => handleDeleteUser(entity._id)}
               okText="Xác nhận"
               cancelText="Hủy"
@@ -184,7 +184,7 @@ const UserPage = () => {
       <Access permission={ALL_PERMISSIONS.USERS.GET_PAGINATE}>
         <DataTable<IUser>
           actionRef={tableRef}
-          headerTitle="Danh sách Users"
+          headerTitle="Danh Sách Người Dùng"
           rowKey="_id"
           loading={isFetching}
           columns={columns}

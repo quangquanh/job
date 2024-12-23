@@ -73,7 +73,7 @@ const UserResume = (props: any) => {
       dataIndex: "status",
     },
     {
-      title: "Ngày rải CV",
+      title: "Ngày gửi",
       dataIndex: "createdAt",
       render(value, record, index) {
         return <>{dayjs(record.createdAt).format("DD-MM-YYYY HH:mm:ss")}</>;
@@ -400,7 +400,7 @@ const JobByEmail = (props: any) => {
               label={"Kỹ năng"}
               name={"skills"}
               rules={[
-                { required: true, message: "Vui lòng chọn ít nhất 1 skill!" },
+                { required: true, message: "Vui lòng chọn ít nhất 1 kĩ năng" },
               ]}
             >
               <Select
@@ -437,17 +437,17 @@ const ManageAccount = (props: IProps) => {
   const items: TabsProps["items"] = [
     {
       key: "user-resume",
-      label: `Rải CV`,
+      label: `Gửi CV ứng tuyển`,
       children: <UserResume />,
     },
     {
       key: "email-by-skills",
-      label: `Nhận Jobs qua Email`,
+      label: `Nhận thông tin công việc qua Email`,
       children: <JobByEmail />,
     },
     {
       key: "user-update-info",
-      label: `Cập nhật thông tin`,
+      label: `Cập nhật thông tin cá nhân`,
       children: <UserUpdateInfo />,
     },
     {

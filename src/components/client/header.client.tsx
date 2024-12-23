@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import {
-  CodeOutlined,
   ContactsOutlined,
   DashOutlined,
+  HomeOutlined,
   LogoutOutlined,
   MenuFoldOutlined,
-  RiseOutlined,
   TwitterOutlined,
+  UnorderedListOutlined,
 } from "@ant-design/icons";
 import { Avatar, Drawer, Dropdown, MenuProps, Space, message } from "antd";
 import { Menu, ConfigProvider } from "antd";
@@ -43,17 +43,17 @@ const Header = (props: any) => {
     {
       label: <Link to={"/"}>Trang Chủ</Link>,
       key: "/",
-      icon: <TwitterOutlined />,
+      icon: <HomeOutlined />,
     },
     {
-      label: <Link to={"/job"}>Việc Làm IT</Link>,
+      label: <Link to={"/job"}>Danh sách việc làm</Link>,
       key: "/job",
-      icon: <CodeOutlined />,
+      icon: <UnorderedListOutlined />,
     },
     {
-      label: <Link to={"/company"}>Top Công ty IT</Link>,
+      label: <Link to={"/company"}>Danh sách công ty</Link>,
       key: "/company",
-      icon: <RiseOutlined />,
+      icon: <UnorderedListOutlined />,
     },
   ];
 

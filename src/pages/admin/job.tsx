@@ -42,7 +42,7 @@ const JobPage = () => {
     if (_id) {
       const res = await callDeleteJob(_id);
       if (res && res.data) {
-        message.success("Xóa Job thành công");
+        message.success("Xóa công việc thành công");
         reloadTable();
       } else {
         notification.error({
@@ -69,7 +69,7 @@ const JobPage = () => {
       hideInSearch: true,
     },
     {
-      title: "Tên Job",
+      title: "Tên công việc",
       dataIndex: "name",
       sorter: true,
     },
@@ -83,7 +83,7 @@ const JobPage = () => {
       },
     },
     {
-      title: "Level",
+      title: "Trình độ",
       dataIndex: "level",
       renderFormItem: (item, props, form) => (
         <ProFormSelect
@@ -117,7 +117,7 @@ const JobPage = () => {
     },
 
     {
-      title: "CreatedAt",
+      title: "Ngày tạo",
       dataIndex: "createdAt",
       width: 200,
       sorter: true,
@@ -127,7 +127,7 @@ const JobPage = () => {
       hideInSearch: true,
     },
     {
-      title: "UpdatedAt",
+      title: "Ngày cập nhật",
       dataIndex: "updatedAt",
       width: 200,
       sorter: true,
@@ -137,7 +137,7 @@ const JobPage = () => {
       hideInSearch: true,
     },
     {
-      title: "Actions",
+      title: "Chỉnh sửa",
       hideInSearch: true,
       width: 50,
       render: (_value, entity, _index, _action) => (
@@ -157,8 +157,8 @@ const JobPage = () => {
           <Access permission={ALL_PERMISSIONS.JOBS.DELETE} hideChildren>
             <Popconfirm
               placement="leftTop"
-              title={"Xác nhận xóa job"}
-              description={"Bạn có chắc chắn muốn xóa job này ?"}
+              title={"Xác nhận xóa công việc"}
+              description={"Bạn có chắc chắn muốn xóa công việc này ?"}
               onConfirm={() => handleDeleteJob(entity._id)}
               okText="Xác nhận"
               cancelText="Hủy"
@@ -219,7 +219,7 @@ const JobPage = () => {
       <Access permission={ALL_PERMISSIONS.JOBS.GET_PAGINATE}>
         <DataTable<IJob>
           actionRef={tableRef}
-          headerTitle="Danh sách Jobs"
+          headerTitle="Danh sách công việc"
           rowKey="_id"
           loading={isFetching}
           columns={columns}

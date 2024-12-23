@@ -47,7 +47,7 @@ const ResumePage = () => {
     if (_id) {
       const res = await callDeleteResume(_id);
       if (res && res.data) {
-        message.success("Xóa Resume thành công");
+        message.success("Xóa CV thành công");
         reloadTable();
       } else {
         notification.error({
@@ -97,24 +97,24 @@ const ResumePage = () => {
             APPROVED: "APPROVED",
             REJECTED: "REJECTED",
           }}
-          placeholder="Chọn level"
+          placeholder="Chọn trình độ"
         />
       ),
     },
 
     {
-      title: "Job",
+      title: "Công việc",
       dataIndex: ["jobId", "name"],
       hideInSearch: true,
     },
     {
-      title: "Company",
+      title: "Công ty",
       dataIndex: ["companyId", "name"],
       hideInSearch: true,
     },
 
     {
-      title: "CreatedAt",
+      title: "Ngày tạo",
       dataIndex: "createdAt",
       width: 200,
       sorter: true,
@@ -124,7 +124,7 @@ const ResumePage = () => {
       hideInSearch: true,
     },
     {
-      title: "UpdatedAt",
+      title: "Ngày cập nhật",
       dataIndex: "updatedAt",
       width: 200,
       sorter: true,
@@ -215,7 +215,7 @@ const ResumePage = () => {
       <Access permission={ALL_PERMISSIONS.RESUMES.GET_PAGINATE}>
         <DataTable<IResume>
           actionRef={tableRef}
-          headerTitle="Danh sách Resumes"
+          headerTitle="Danh sách CV"
           rowKey="_id"
           loading={isFetching}
           columns={columns}
