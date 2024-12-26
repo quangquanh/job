@@ -9,6 +9,7 @@ import styles from "styles/client.module.scss";
 
 interface IProps {
   showPagination?: boolean;
+  keyword: string;
 }
 
 const CompanyCard = (props: IProps) => {
@@ -28,6 +29,20 @@ const CompanyCard = (props: IProps) => {
     fetchCompany();
   }, [current, pageSize, filter, sortQuery]);
 
+  // useEffect(() => {
+  //   if (props.keyword && displayCompany)
+  //     setDisplayCompany(
+  //       displayCompany.filter((v) => v.name?.includes(props.keyword))
+  //     );
+  //   else fetchCompany();
+  // }, [props.keyword]);
+  useEffect(() => {
+    fetchCompany().then((res) => {
+      if (props.keyword && res) {
+        setDisplayCompany(res.filter((v) => v.name?.includes(props.keyword)));
+      }
+    });
+  }, [props.keyword]);
   const fetchCompany = async () => {
     setIsLoading(true);
     let query = `current=${current}&pageSize=${pageSize}`;
@@ -42,6 +57,8 @@ const CompanyCard = (props: IProps) => {
     if (res && res.data) {
       setDisplayCompany(res.data.result);
       setTotal(res.data.meta.total);
+      setIsLoading(false);
+      return res.data.result;
     }
     setIsLoading(false);
   };
