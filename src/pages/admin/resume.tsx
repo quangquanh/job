@@ -35,7 +35,7 @@ const ResumePage = () => {
     ?._id;
   let resumes = useAppSelector((state) => state.resume.result);
   resumes = companyId
-    ? resumes.filter((v) => v?.companyId?._id === companyId)
+    ? resumes.filter((v: any) => v?.companyId?._id === companyId)
     : resumes;
 
   const dispatch = useAppDispatch();

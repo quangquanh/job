@@ -18,7 +18,7 @@ interface IProps {
   address: string;
 }
 
-const JobCard = (props: IProps) => {
+const JobCard = (props: any) => {
   const { showPagination = false } = props;
 
   const [displayJob, setDisplayJob] = useState<IJob[] | null>(null);

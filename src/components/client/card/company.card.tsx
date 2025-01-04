@@ -12,7 +12,7 @@ interface IProps {
   keyword: string;
 }
 
-const CompanyCard = (props: IProps) => {
+const CompanyCard = (props: any) => {
   const { showPagination = false } = props;
 
   const [displayCompany, setDisplayCompany] = useState<ICompany[] | null>(null);
